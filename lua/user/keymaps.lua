@@ -6,3 +6,6 @@ lvim.keys.normal_mode[","] = ":BufferLineCycleNext<cr>"
 lvim.keys.insert_mode["jj"] = "<Esc>"
 lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["kj"] = "<Esc>"
+
+-- colorscheme
+lvim.colorscheme = "github_dark_dimmed"
