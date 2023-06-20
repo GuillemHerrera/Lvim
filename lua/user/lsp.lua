@@ -51,7 +51,7 @@ if not configs.ruff_lsp then
           args = {
             '--line-length=170',
             '--select=ALL',
-            '--ignore=N818,ANN204,ANN101,E501,T201,D101,D107,D105,Q000,S101,PD011,I001',
+            '--ignore=N818,ANN204,ANN101,E501,T201,D101,D107,D105,D205,D400,D212,D415,Q000,S101,PD011,PD002,I001',
             -- '--ignore=ANN204',
             -- '--ignore=T201',
             -- '--ignore=E50l',
