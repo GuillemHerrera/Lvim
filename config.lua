@@ -13,7 +13,9 @@ lvim.plugins = {
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
   'kvrohit/rasmus.nvim',
-  'projekt0n/github-nvim-theme'
+  'projekt0n/github-nvim-theme',
+  'tpope/vim-surround',
+  'tpope/vim-repeat'
   -- colorscheme github_dark_dimmed
 }
 -- automatically install python syntax highlighting
