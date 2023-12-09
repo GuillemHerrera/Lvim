@@ -1,4 +1,7 @@
 -- Read the docs: https://www.lunarvim.org/docs/configuration
+-- To make telescope live-grep working
+-- https://github.com/LunarVim/LunarVim/issues/2981#issuecomment-1239159274
+
 -- install plugins
 reload("user.options")
 reload("user.keymaps")
@@ -15,14 +18,26 @@ lvim.plugins = {
   'kvrohit/rasmus.nvim',
   'projekt0n/github-nvim-theme',
   'tpope/vim-surround',
-  'tpope/vim-repeat'
-  -- colorscheme github_dark_dimmed
+  'tpope/vim-repeat',
+  {'Exafunction/codeium.vim',
+    config = function ()
+  vim.keymap.set('i', '<C-l>', function () return vim.fn['codeium#Complete']() end, { expr = true })
+  vim.keymap.set('i', '<M-TAB>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+  vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+  vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+  vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+  end
+  }
 }
+-- disable auto codeium suggestion  -- colorscheme github_dark_dimmed
+vim.g.codeium_manual = 1
 -- automatically install python syntax highlighting
 lvim.builtin.treesitter.ensure_installed = {
   "python",
 }
-
+-- setup plugins.    
+--
+-- 
 
 -- -- setup formatting
 -- local formatters = require "lvim.lsp.null-ls.formatters"
