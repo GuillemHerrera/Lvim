@@ -6,6 +6,7 @@
 reload("user.options")
 reload("user.keymaps")
 reload("user.lsp")
+reload("user.telescope")
 
 vim.g.node_host_prog = "/home/guillemherrera/.nvm/versions/node/v14.21.3/bin/node"
 vim.g.python3_host_prog = "/usr/local/bin/python3"
@@ -19,15 +20,6 @@ lvim.plugins = {
   'projekt0n/github-nvim-theme',
   'tpope/vim-surround',
   'tpope/vim-repeat',
-  {'Exafunction/codeium.vim',
-    config = function ()
-  vim.keymap.set('i', '<C-l>', function () return vim.fn['codeium#Complete']() end, { expr = true })
-  vim.keymap.set('i', '<M-TAB>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-  vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-  vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-  vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
-  end
-  },
   {"ellisonleao/glow.nvim", config = true, cmd = "Glow"}
 }
 -- disable auto codeium suggestion  -- colorscheme github_dark_dimmed
@@ -36,6 +28,13 @@ vim.g.codeium_manual = 1
 lvim.builtin.treesitter.ensure_installed = {
   "python",
 }
+vim.api.nvim_create_autocmd("User", {
+
+  pattern = "LvimStarted",
+  callback = function()
+    require("user.telescope")
+  end,
+})
 -- setup plugins.    
 --
 -- 
