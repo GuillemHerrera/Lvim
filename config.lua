@@ -20,7 +20,11 @@ lvim.plugins = {
   'projekt0n/github-nvim-theme',
   'tpope/vim-surround',
   'tpope/vim-repeat',
-  {"ellisonleao/glow.nvim", config = true, cmd = "Glow"}
+  {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
+    'L3MON4D3/LuaSnip',
+    -- config = function()
+    --     require("luasnip.loaders.from_vscode").lazy_load()  -- Load snippets
+    -- end,
 }
 -- disable auto codeium suggestion  -- colorscheme github_dark_dimmed
 vim.g.codeium_manual = 1
